@@ -8,6 +8,8 @@
 
 一部**完全虚构**的伪历史学术著作：排版、脚注、CIP 数据、ISBN、插图与参考文献全部按中文社科译著的实际体例制作，唯独内容荒谬绝伦——中华民族起源于月球静海，贞观之治是反物质能源革命，郑和是去南极挖重氢，努尔哈赤是明代太医院培育的基因原体。
 
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+
 <p align="center">
   <img src="docs/preview/cover.png" width="330" alt="封面">
   <img src="docs/preview/cip.png" width="330" alt="版权页">
@@ -108,4 +110,30 @@
 - 本书为**虚构文学作品**，所有学术结论均为杜撰，**不得作为史料引用**。
 - 书中引用的古籍、卷次、点校本页码大多真实存在，但对其含义的解释纯属虚构，请勿据此转述。
 - 书中的机构、人物职务、档案编号、ISBN 与出版社联系方式均为虚构；现实中的同名机构与本书无关。
-- 未指定开源许可证；如需复用排版代码或文本，请先与维护者联系。
+
+## 许可
+
+本仓库全部原创内容——LaTeX 源码、成品 PDF、TikZ 图版与文档——以
+**[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)（署名—非商业性使用—相同方式共享 4.0 国际）**发布。
+完整法律文本见 [LICENSE](LICENSE)。
+
+| | 说明 |
+|---|---|
+| **共享**（自由） | 以任何媒介或格式复制、发行本作品 |
+| **演绎**（自由） | 修改、转换、基于本作品进行再创作 |
+| **署名**（条件） | 注明作者、附上许可链接、说明是否作过改动 |
+| **非商业**（条件） | 不得将本作品用于商业目的 |
+| **相同方式共享**（条件） | 改编作品须以同一许可发布 |
+
+**建议署名格式：**
+
+> “战争的雷霆——记一种可能的中国历史”，Cmd-GZ，CC BY-NC-SA 4.0
+> https://github.com/<your-name>/thunder-of-war
+
+**不在许可范围内：**
+
+- 书中所引中国古代文献（《旧唐书》《明史》《资治通鉴》等）属**公有领域**，本许可不主张任何权利；
+- 排版所用 Noto 系列字体依 **[SIL Open Font License 1.1](https://scripts.sil.org/OFL)** 分发，与本许可无关。
+
+> 说明：CC 官方提供[中文参考译本](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.zh-Hans)，仅供参考；发生争议时以 [LICENSE](LICENSE) 中的英文法律文本为准。
+
