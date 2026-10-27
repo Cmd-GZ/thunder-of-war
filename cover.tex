@@ -94,25 +94,28 @@
     {\fontsize{9pt}{13pt}\selectfont
      李文亚\ \ ·\ \ 张建国\ \ 译};
 
-  % 出版者徽记
+  % 出版者徽记（两枚）
   \node[anchor=south, text=cv72, align=center]
-    at ([yshift=31mm]current page.south)
+    at ([yshift=32mm]current page.south)
     {\begin{tikzpicture}[baseline=0pt]
        \draw[cv50, line width=0.5pt] (-3.8mm,-3.8mm) rectangle (3.8mm,3.8mm);
        \draw[cv32, line width=0.25pt] (-4.6mm,-4.6mm) rectangle (4.6mm,4.6mm);
        \node[text=cv82, font=\sffamily\fontsize{5.6pt}{6pt}\selectfont] at (0,0) {МГУ};
-     \end{tikzpicture}\\[3pt]
-     {\sffamily\fontsize{6.2pt}{9pt}\selectfont\addfontfeatures{LetterSpace=4}
-      МОСКОВСКИЙ УНИВЕРСИТЕТ\ \ ·\ \ САНКТ-ПЕТЕРБУРГ}};
+       \begin{scope}[xshift=13mm]
+         \draw[cv50, line width=0.5pt] (-3.8mm,-3.8mm) rectangle (3.8mm,3.8mm);
+         \draw[cv32, line width=0.25pt] (-4.6mm,-4.6mm) rectangle (4.6mm,4.6mm);
+         \node[text=cv82, font=\sffamily\fontsize{5.6pt}{6pt}\selectfont] at (0,0) {VFS};
+       \end{scope}
+     \end{tikzpicture}};
 
   \node[anchor=south, text=coverink, align=center]
-    at ([yshift=19mm]current page.south)
-    {\sffamily\fontsize{7.8pt}{11pt}\selectfont
-     莫斯科大学出版社\ \ /\ \ 圣彼得堡学术书局\ \ 联合出版};
+    at ([yshift=24mm]current page.south)
+    {\sffamily\fontsize{7.4pt}{10.2pt}\selectfont
+     莫斯科大学出版社\ \ ·\ \ 圣彼得堡学术书局\ \ ·\ \ VFS 基金会};
 
   \node[anchor=south, text=cv60, align=center]
-    at ([yshift=12.6mm]current page.south)
-    {\sffamily\fontsize{6.6pt}{9pt}\selectfont 2024 年·第 3 版};
+    at ([yshift=16.5mm]current page.south)
+    {\sffamily\fontsize{6.6pt}{9pt}\selectfont 联合出版\ \ ·\ \ 2024 年第 3 版};
 \end{tikzpicture}}
 
 \clearpage
