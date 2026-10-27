@@ -129,7 +129,7 @@
 
 **建议署名格式：**
 
-> “战争的雷霆——记一种可能的中国历史”，Cmd-GZ，CC BY-NC-SA 4.0
+> “战争的雷霆——记一种可能的中国历史”，Cmd-GZ, bodyatQin，CC BY-NC-SA 4.0
 > https://github.com/<your-name>/thunder-of-war
 
 **不在许可范围内：**
