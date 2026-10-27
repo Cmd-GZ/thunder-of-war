@@ -1,0 +1,276 @@
+% ===================================================================
+%  《战争的雷霆——记一种可能的中国历史》
+%  Thunder of War: A Chronological Reconstruction of a Possible
+%  Chinese History
+%  Moscow University Press / St Petersburg Academic Press, 3rd ed. 2024
+%  排版：仿苏式/中译社科类古籍体例
+% ===================================================================
+
+\usepackage{geometry}
+\geometry{
+  paperwidth=185mm, paperheight=260mm,
+  inner=21mm, outer=17mm, top=22mm, bottom=24mm,
+  headheight=24pt, headsep=6.5mm, footskip=11mm
+}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{array,tabularx,booktabs,multirow,makecell}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{calc}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[perpage]{footmisc}
+\usepackage{etoolbox}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{patterns,arrows.meta,calc,positioning,decorations.pathmorphing,
+                decorations.markings,shapes.geometric}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{caption}
+\usepackage[hidelinks,bookmarksnumbered,bookmarksopen]{hyperref}
+
+% ---------------------------------------------------------------- 颜色
+\definecolor{ink}{HTML}{17191C}
+\definecolor{graphite}{HTML}{3F454C}
+\definecolor{pencil}{HTML}{5B6167}
+\definecolor{rulegrey}{HTML}{8B8F93}
+\definecolor{faintgrey}{HTML}{C9C9C4}
+\definecolor{oxblood}{HTML}{6E1B22}
+\definecolor{coverbg}{HTML}{1A1C20}
+\definecolor{coverink}{HTML}{E6DFCF}
+\definecolor{coverdim}{HTML}{7C7A73}
+\definecolor{shade}{HTML}{F2F0EA}
+\definecolor{stamp}{HTML}{8C2B2B}
+
+\color{ink}
+
+% ---------------------------------------------------------------- 字体
+\setmainfont{NotoSerif}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Path=/usr/share/fonts/noto/
+]
+\setsansfont{NotoSans}[
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  BoldFont=*-Bold,
+  ItalicFont=*-Italic,
+  BoldItalicFont=*-BoldItalic,
+  Path=/usr/share/fonts/noto/
+]
+\setmonofont{JetBrains Maple Mono}[
+  UprightFont=* Regular, BoldFont=* Bold, Scale=0.92
+]
+
+\setCJKmainfont{Noto Serif CJK SC}[
+  BoldFont=Noto Serif CJK SC Bold,
+  ItalicFont=Noto Serif CJK SC,
+  BoldItalicFont=Noto Serif CJK SC Bold
+]
+% 让罗马数字、带圈数字等“类汉字”符号使用中文字体
+\xeCJKDeclareCharClass{CJK}{"2150 -> "218F, "2460 -> "24FF, "3000 -> "303F}
+
+\setCJKsansfont{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
+% 伪斜体的字距（中文无真斜体，此处仅作强调标记）
+\newcommand{\jia}{\CJKfontspec{Noto Serif CJK SC}}
+
+% ---------------------------------------------------------------- 版心
+\linespread{1.42}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0pt}
+\raggedbottom
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+
+% ---------------------------------------------------------------- 计数
+\renewcommand{\thechapter}{\chinese{chapter}}
+\renewcommand{\thesection}{\chinese{section}}
+\renewcommand{\thesubsection}{\chinese{subsection}}
+\renewcommand{\thefigure}{\arabic{chapter}-\arabic{figure}}
+\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}
+\renewcommand{\theequation}{\arabic{chapter}-\arabic{equation}}
+
+% ---------------------------------------------------------------- 章标题
+\newcommand{\chapterornament}{%
+  \vspace{0.8\baselineskip}%
+  \begin{tikzpicture}[baseline=0pt]
+    \fill[rulegrey] (0,0) rectangle (42mm,0.75pt);
+    \fill[rulegrey] (0,2.4pt) rectangle (42mm,2.75pt);
+  \end{tikzpicture}}
+
+\titleformat{\chapter}[display]
+  {\centering\normalfont}
+  {\large\mdseries 第\,\thechapter\,章}
+  {0.55\baselineskip}
+  {\normalfont\LARGE\bfseries\linespread{1.15}\selectfont}
+  [\chapterornament]
+\titlespacing*{\chapter}{0pt}{-16pt}{30pt}
+
+\titleformat{\section}
+  {\normalfont\sffamily\large\bfseries\linespread{1.2}\selectfont}
+  {第\,\thesection\,节}{0.6em}{}
+\titlespacing*{\section}{0pt}{18pt}{9pt}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection、}{0.2em}{}
+\titlespacing*{\subsection}{0pt}{13pt}{6pt}
+
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\itshape}
+  {}{0pt}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{4pt}
+
+% 章题下的俄文原题
+\newcommand{\chaptersubtitle}[2]{%
+  \begin{center}
+  \vspace{-14pt}
+  {\small\sffamily\color{pencil}#1}\\[2pt]
+  {\small\sffamily\itshape\color{pencil}#2}
+  \end{center}
+  \vspace{4pt}
+}
+
+% 章前题记
+\newcommand{\epigraphbox}[2]{%
+  \begingroup
+  \vspace{2pt}
+  \begin{list}{}{\leftmargin=3.2em \rightmargin=2.2em \topsep=0pt
+                 \parsep=0pt \itemsep=0pt}
+  \item\relax
+  {\small\linespread{1.32}\selectfont\color{ink!88}#1\par}
+  \vspace{3pt}
+  {\small\raggedleft\color{pencil}#2\par}
+  \end{list}
+  \vspace{6pt}
+  \endgroup
+}
+
+% ---------------------------------------------------------------- 页眉页脚
+% 注意：fancyhdr v5 的 \fancypagestyle 在使用时会执行其中的 \fancyhf{}，
+% 从而清空全局 fancy 设置。故此处直接定义 \ps@ 样式，绕开该机制。
+\makeatletter
+\def\ps@frontmatterpage{%
+  \let\@mkboth\@gobbletwo
+  \let\@oddhead\@empty \let\@evenhead\@empty
+  \def\@oddfoot{\hfil\small\thepage\hfil}%
+  \def\@evenfoot{\hfil\small\thepage\hfil}}
+\def\ps@plain{%
+  \let\@mkboth\@gobbletwo
+  \let\@oddhead\@empty \let\@evenhead\@empty
+  \def\@oddfoot{\hfil\small\thepage\hfil}%
+  \def\@evenfoot{\hfil\small\thepage\hfil}}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulegrey}\leaders\hrule height 0.3pt\hfill}}
+\fancyhead[LE]{\small\color{pencil}\itshape 战争的雷霆}
+\fancyhead[RO]{\small\color{pencil}\itshape\leftmark}
+\fancyfoot[C]{\small\color{ink}\thepage}
+
+\renewcommand{\chaptermark}[1]{\markboth{第\,\thechapter\,章\quad #1}{第\,\thechapter\,章\quad #1}}
+\renewcommand{\sectionmark}[1]{}
+
+% ---------------------------------------------------------------- 脚注
+\renewcommand{\footnoterule}{%
+  \kern-3pt
+  \hrule width 3.1cm height 0.4pt\kern 2.6pt}
+\setlength{\skip\footins}{16pt}
+\renewcommand{\footnotesize}{\fontsize{8.1pt}{11.4pt}\selectfont}
+\makeatletter
+\renewcommand{\@makefnmark}{\hbox{\normalfont\scriptsize\@thefnmark}}
+\makeatother
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\renewcommand{\footnotelayout}{\linespread{1.18}\selectfont}
+
+% ---------------------------------------------------------------- 图表
+\captionsetup{
+  font={small}, labelfont={bf,sf}, labelsep=quad,
+  justification=centering, skip=7pt
+}
+\captionsetup[table]{position=top, skip=5pt}
+\captionsetup[figure]{position=bottom, skip=7pt}
+
+\newcommand{\figsource}[1]{%
+  \par\vspace{2pt}{\footnotesize\raggedright\color{pencil}资料来源：#1\par}}
+\newcommand{\tabsource}[1]{%
+  \par\vspace{1pt}{\footnotesize\raggedright\color{pencil}资料来源：#1\par}}
+
+% ---------------------------------------------------------------- 档案框
+\newtcolorbox{archive}[2][]{%
+  enhanced, breakable,
+  colback=shade, colframe=graphite!80,
+  boxrule=0.45pt, arc=0pt, outer arc=0pt,
+  left=13pt, right=13pt, top=10pt, bottom=10pt,
+  fontupper=\footnotesize\linespread{1.3}\selectfont,
+  before skip=13pt, after skip=13pt,
+  overlay={%
+    \node[anchor=north west, inner sep=0pt, xshift=13pt, yshift=-6pt]
+      at (frame.north west)
+      {\sffamily\scriptsize\color{graphite}\MakeUppercase{#2}};
+    \node[anchor=north east, inner sep=0pt, xshift=-13pt, yshift=-4pt]
+      at (frame.north east)
+      {\sffamily\scriptsize\color{stamp}\bfseries #1};
+    \draw[stamp, line width=0.4pt]
+      ([xshift=-13pt,yshift=-8pt]frame.north east) -- ++(0,-5pt);
+  },
+  before upper={\vspace{13pt}},
+}
+
+\newcommand{\archivestamp}[1]{}
+
+% 小号“译者注”标记
+\newcommand{\yizhe}[1]{{\footnotesize\color{pencil}［译者注：#1］}}
+
+% 强调
+\newcommand{\kw}[1]{\textbf{#1}}
+\newcommand{\ru}[1]{{\itshape #1}}
+
+% 引用文献的斜体书名（中文用书名号，不另设）
+\newcommand{\citebk}[1]{《#1》}
+
+% TOC: 使用 book 类默认设置
+\makeatletter
+\renewcommand{\@pnumwidth}{2.4em}
+\renewcommand{\@tocrmarg}{3.4em}
+\renewcommand{\@dotsep}{1.1}
+\makeatother
+
+% 未编号条目（附录、序言等）
+\newcommand{\tocchap}[1]{%
+  \addcontentsline{toc}{chapter}{\texorpdfstring{#1}{#1}}}
+
+% ---------------------------------------------------------------- 杂项
+\newcommand{\blankpage}{\null\thispagestyle{empty}\newpage}
+\setlength{\parskip}{0pt}
+
+% 每页页眉下细线通过 header 中的 \headrule 关闭，改用文字规则
+\newcommand{\thinrule}{\par\vspace{2pt}{\color{rulegrey}\hrule height 0.3pt}\vspace{2pt}}
+
+% 文本内的“印章”
+\newcommand{\seal}[2][stamp]{%
+  \begin{tikzpicture}[baseline=-0.6em]
+    \node[draw=#1, line width=0.6pt, text=#1, inner sep=2.4pt,
+          font=\sffamily\scriptsize, rotate=-6, fill=white]
+      {#2};
+  \end{tikzpicture}}
+
+\endinput

@@ -1,0 +1,88 @@
+% ============================ 封底 ============================
+\newcommand{\backart}{%
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+
+  \draw[cv55, line width=0.7pt]
+    ([xshift=10mm,yshift=-10mm]current page.north west)
+    rectangle ([xshift=-10mm,yshift=10mm]current page.south east);
+  \draw[cv32, line width=0.3pt]
+    ([xshift=12.4mm,yshift=-12.4mm]current page.north west)
+    rectangle ([xshift=-12.4mm,yshift=12.4mm]current page.south east);
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-18mm]current page.north)
+    {\sffamily\fontsize{6.4pt}{9pt}\selectfont
+     \addfontfeatures{LetterSpace=10}
+     MOSCOW UNIVERSITY PRESS · ST PETERSBURG ACADEMIC PRESS};
+
+  \draw[cv32, line width=0.35pt]
+    ([xshift=-58mm,yshift=-25mm]current page.north east) --
+    ([xshift=58mm,yshift=-25mm]current page.north west);
+
+  % 引文
+  \node[anchor=north, text=cv82, align=center, text width=124mm]
+    at ([yshift=-38mm]current page.north)
+    {\fontsize{10.5pt}{17pt}\selectfont
+     “如果巴兰尼科夫是对的，\\[2pt]
+      那么我们的史书，究竟是一份记录，\\[2pt]
+      还是一份被精心保管的、给幸存者的说明书？”};
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-76mm]current page.north)
+    {\sffamily\fontsize{7.2pt}{10pt}\selectfont ——本书译者序};
+
+  \draw[cv30, line width=0.3pt]
+    ([xshift=-34mm,yshift=-84mm]current page.north east) --
+    ([xshift=34mm,yshift=-84mm]current page.north west);
+
+  % 内容简介
+  \node[anchor=north, text=cv72, align=justify, text width=132mm,
+        font=\fontsize{7.6pt}{13.4pt}\selectfont]
+    at ([yshift=-92mm]current page.north)
+    {\textbf{\color{cv88}内容简介}\\[5pt]
+     本书据莫斯科档案馆未公开的冷战时期考古卷宗，重构了一种可能的中国历史：
+     中华民族起源于月球静海的一片穹顶之下，于公元前二二一年乘“昆仑山号”降落黄河流域；
+     盛唐的贞观之治是一场反物质能源革命，而安史之乱是一次黑洞引力波塌缩事故；
+     郑和七下西洋的真实目的，是前往南极开采重氢矿脉；
+     努尔哈赤则是明代太医院基因强化工程中编号〇一的“原体”。\\[6pt]
+     全书四章，章章有据；据者，皆真书也。};
+
+  % 一句话评论
+  \node[anchor=north, text=cv60, align=center, text width=132mm,
+        font=\fontsize{7.2pt}{12pt}\selectfont]
+    at ([yshift=-158mm]current page.north)
+    {\itshape “一部在每个步骤上都合乎规范、在整体上不可接受的著作。”\quad
+     ——《史学理论研究》2022 年第 3 期};
+
+  % 底部：ISBN、条码、定价
+  \draw[cv32, line width=0.3pt]
+    ([xshift=-58mm,yshift=38mm]current page.south east) --
+    ([xshift=58mm,yshift=38mm]current page.south west);
+
+  \node[anchor=south west, text=cv88, align=left]
+    at ([xshift=18mm,yshift=20mm]current page.south west)
+    {\fontsize{8.4pt}{12pt}\selectfont 定价：128.00 元};
+
+  \node[anchor=south east, text=cv60, align=right]
+    at ([xshift=-18mm,yshift=20mm]current page.south east)
+    {\sffamily\fontsize{7pt}{10pt}\selectfont ISBN 978-5-317-06892-1};
+
+  % 小条码
+  \begin{scope}[shift={([xshift=-52mm,yshift=27mm]current page.south east)}]
+    \fill[white] (0,0) rectangle (34mm,9mm);
+    \foreach \i/\w in {0/0.9,1.0/0.45,1.6/0.9,2.7/0.45,3.3/0.45,3.9/0.9,
+                       5.0/0.45,5.6/0.9,6.7/0.45,7.3/0.45,7.9/0.9,
+                       9.0/0.45,9.6/0.45,10.2/0.9,11.3/0.45,11.9/0.9,
+                       13.0/0.45,13.6/0.45,14.2/0.9,15.3/0.45,15.9/0.9,
+                       17.0/0.45,17.6/0.45,18.2/0.9}{
+      \fill[ink] (\i mm,2.4mm) rectangle ++(\w mm,6.2mm);}
+  \end{scope}
+
+\end{tikzpicture}}
+
+\clearpage
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{\backart}
+\null
+\clearpage

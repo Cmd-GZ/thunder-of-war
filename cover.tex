@@ -1,0 +1,122 @@
+% ============================ 封面 ============================
+% 说明：全部采用实色（不使用透明度），以保证 xdvipdfmx 输出稳定。
+\definecolor{cv55}{HTML}{8A8780}
+\definecolor{cv32}{HTML}{5B5A58}
+\definecolor{cv30}{HTML}{575655}
+\definecolor{cv60}{HTML}{949189}
+\definecolor{cv82}{HTML}{C1BCB0}
+\definecolor{cv88}{HTML}{CDC7BA}
+\definecolor{cv72}{HTML}{ADA89E}
+\definecolor{cv58}{HTML}{908D86}
+\definecolor{cv50}{HTML}{807E78}
+
+\newcommand{\coverart}{%
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+
+  % 外框：双线
+  \draw[cv55, line width=0.7pt]
+    ([xshift=10mm,yshift=-10mm]current page.north west)
+    rectangle ([xshift=-10mm,yshift=10mm]current page.south east);
+  \draw[cv32, line width=0.3pt]
+    ([xshift=12.4mm,yshift=-12.4mm]current page.north west)
+    rectangle ([xshift=-12.4mm,yshift=12.4mm]current page.south east);
+
+  % 装饰：月面穹顶与下降弹道
+  \begin{scope}[shift={([yshift=112mm]current page.south)}]
+    \draw[cv30, line width=0.45pt] (0,0) circle (20mm);
+    \draw[cv30, line width=0.28pt] (0,0) ellipse (20mm and 6.9mm);
+    \draw[cv30, line width=0.28pt] (0,0) ellipse (20mm and 13.2mm);
+    \draw[cv30, line width=0.22pt] (-20mm,0) -- (20mm,0);
+    \draw[cv30, line width=0.22pt] (0,-20mm) -- (0,20mm);
+    \foreach \a in {30,60}{
+      \draw[cv30, line width=0.18pt] (\a:20mm) arc[start angle=\a, end angle=180-\a, radius=20mm];}
+    \draw[cv30, line width=0.5pt, dash pattern=on 2pt off 1.5pt]
+      (-27mm,27mm) .. controls (-12mm,20mm) and (4mm,9mm) .. (17mm,0.4mm);
+    \draw[cv30, line width=0.45pt, -{Latex[length=1.8mm,width=1mm]}]
+      (17mm,0.4mm) -- (19mm,-1.4mm);
+    \foreach \x in {-18,-12,...,18}{
+      \draw[cv30, line width=0.18pt] (\x mm,-21.6mm) -- (\x mm,-20.6mm);}
+    \node[cv30, font=\sffamily\tiny, anchor=north] at (0,-23.4mm) {MARE TRANQUILLITATIS\ \ 0°N 23.5°E};
+  \end{scope}
+
+  % ---- 顶部：丛书名 ----
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-16mm]current page.north)
+    {\sffamily\fontsize{6.4pt}{9pt}\selectfont
+     \addfontfeatures{LetterSpace=12}
+     FAR EASTERN HETERODOX SOURCES AND CIVILIZATION ORIGINS · VOL. VII};
+
+  \node[anchor=north, text=cv88, align=center]
+    at ([yshift=-22.5mm]current page.north)
+    {\sffamily\fontsize{8.2pt}{11pt}\selectfont
+     《远东异端史料与文明起源重构丛书》\ \ 第\,VII\,卷};
+
+  \draw[cv32, line width=0.35pt]
+    ([xshift=-62mm,yshift=-30mm]current page.north east) --
+    ([xshift=62mm,yshift=-30mm]current page.north west);
+
+  % ---- 中部：书名 ----
+  \node[anchor=center, text=coverink, align=center]
+    at ([yshift=190mm]current page.south)
+    {\fontsize{40pt}{48pt}\selectfont\bfseries
+     战\hspace{0.1em}争\hspace{0.1em}的\hspace{0.1em}雷\hspace{0.1em}霆};
+
+  \node[anchor=north, text=cv82, align=center]
+    at ([yshift=172mm]current page.south)
+    {\fontsize{14.5pt}{20pt}\selectfont
+     ——记一种可能的中国历史——};
+
+  \draw[cv32, line width=0.3pt]
+    ([xshift=-38mm,yshift=161mm]current page.south) --
+    ([xshift=38mm,yshift=161mm]current page.south);
+
+  \node[anchor=north, text=cv60, align=center, text width=136mm]
+    at ([yshift=157mm]current page.south)
+    {\itshape\fontsize{8pt}{12pt}\selectfont
+     \addfontfeatures{LetterSpace=2}
+     THUNDER OF WAR\\[2pt]
+     A Chronological Reconstruction of a Possible Chinese History};
+
+  % ---- 下部：作者 ----
+  \node[anchor=south, text=cv88, align=center]
+    at ([yshift=72mm]current page.south)
+    {\fontsize{10.5pt}{15pt}\selectfont
+     ［俄］巴兰尼科夫\ \ 教授\ \ 著};
+
+  \node[anchor=south, text=cv58, align=center]
+    at ([yshift=63mm]current page.south)
+    {\sffamily\fontsize{7.2pt}{10pt}\selectfont
+     Проф.\ А.\,В.\,Баранников\ \ ·\ \ Moscow State University};
+
+  \node[anchor=south, text=cv72, align=center]
+    at ([yshift=47mm]current page.south)
+    {\fontsize{9pt}{13pt}\selectfont
+     李文亚\ \ ·\ \ 张建国\ \ 译};
+
+  % 出版者徽记
+  \node[anchor=south, text=cv72, align=center]
+    at ([yshift=31mm]current page.south)
+    {\begin{tikzpicture}[baseline=0pt]
+       \draw[cv50, line width=0.5pt] (-3.8mm,-3.8mm) rectangle (3.8mm,3.8mm);
+       \draw[cv32, line width=0.25pt] (-4.6mm,-4.6mm) rectangle (4.6mm,4.6mm);
+       \node[text=cv82, font=\sffamily\fontsize{5.6pt}{6pt}\selectfont] at (0,0) {МГУ};
+     \end{tikzpicture}\\[3pt]
+     {\sffamily\fontsize{6.2pt}{9pt}\selectfont\addfontfeatures{LetterSpace=4}
+      МОСКОВСКИЙ УНИВЕРСИТЕТ\ \ ·\ \ САНКТ-ПЕТЕРБУРГ}};
+
+  \node[anchor=south, text=coverink, align=center]
+    at ([yshift=19mm]current page.south)
+    {\sffamily\fontsize{7.8pt}{11pt}\selectfont
+     莫斯科大学出版社\ \ /\ \ 圣彼得堡学术书局\ \ 联合出版};
+
+  \node[anchor=south, text=cv60, align=center]
+    at ([yshift=12.6mm]current page.south)
+    {\sffamily\fontsize{6.6pt}{9pt}\selectfont 2024 年·第 3 版};
+\end{tikzpicture}}
+
+\clearpage
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{\coverart}
+\null
+\clearpage
