@@ -187,23 +187,22 @@ ISBN 978-5-317-06892-1
 
 \vfill
 
-% ---- 条形码 ----
+% ---- 条形码（真实 EAN-13 图案）----
 \begin{tikzpicture}[baseline=0pt]
-  \draw[ink,line width=0.3pt] (0,0) rectangle (44mm,18mm);
-  \begin{scope}[shift={(3.4mm,7.2mm)}]
-    \def\x{0}
-    \foreach \w/\g in {0.9/1,0.42/0,0.42/1,0.9/0,0.42/1,0.9/1,0.42/0,
-                       0.42/1,0.9/0,0.42/1,0.42/1,0.9/0,0.42/1,0.9/1,
-                       0.42/0,0.42/1,0.9/1,0.42/0,0.42/1,0.9/0,0.42/1,
-                       0.9/1,0.42/0,0.42/1,0.9/0,0.42/1,0.42/0,0.9/1}{
-      \ifnum\g=1 \fill[ink] (\x mm,0) rectangle ++(\w mm,7.6mm);\fi
-      \pgfmathparse{\x+\w+0.44}\xdef\x{\pgfmathresult}
-    }
+  \draw[ink, line width=0.3pt] (0,0) rectangle (44mm,16mm);
+  % 模块宽 0.366mm × 95 = 34.77mm；起点 4.6mm，左右留白对称
+  \begin{scope}[shift={(4.6mm,5.4mm)}]
+    \EANthirteen{0.366mm}{7.4mm}
   \end{scope}
-  \node[font=\sffamily\fontsize{4.4pt}{5pt}\selectfont, anchor=north]
-    at (22mm,6.4mm) {9\quad 785317\quad 068921};
-  \node[font=\sffamily\fontsize{4pt}{5pt}\selectfont, anchor=north]
-    at (22mm,1.6mm) {ISBN 978-5-317-06892-1};
+  % 人读字符：首位居左静区，左六位与右六位分别居中于对应半幅
+  \node[font=\sffamily\fontsize{4.4pt}{5pt}\selectfont, anchor=base]
+    at (3.1mm,3.9mm) {9};
+  \node[font=\sffamily\fontsize{4.4pt}{5pt}\selectfont, anchor=base]
+    at (13.4mm,3.9mm) {785317};
+  \node[font=\sffamily\fontsize{4.4pt}{5pt}\selectfont, anchor=base]
+    at (30.6mm,3.9mm) {068921};
+  \node[font=\sffamily\fontsize{3.8pt}{4.4pt}\selectfont, anchor=base]
+    at (22mm,14.6mm) {ISBN 978-5-317-06892-1};
 \end{tikzpicture}
 
 \end{minipage}
