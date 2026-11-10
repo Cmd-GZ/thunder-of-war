@@ -14,6 +14,7 @@
 set -euo pipefail
 
 cd "$(dirname "$0")"
+ROOT="$(cd ../.. && pwd)"
 
 JOB=main
 DIST="战争的雷霆——记一种可能的中国历史.pdf"
@@ -25,12 +26,12 @@ command -v xelatex >/dev/null 2>&1 || {
 
 # 中文宏包：优先后用系统 TeX Live；系统缺包时回退到仓库内的 texmf/
 if ! kpsewhich ctex.sty >/dev/null 2>&1; then
-  if [ -d texmf ]; then
-    export TEXMFHOME="$PWD/texmf"
+  if [ -d "$ROOT/texmf" ]; then
+    export TEXMFHOME="$ROOT/texmf"
     echo "提示：系统未提供 ctex，改用 ./texmf。"
   else
     echo "错误：系统未安装 ctex / xeCJK / zhnumber。" >&2
-    echo "      请用系统包管理器安装 TeX Live 中文支持，或运行 scripts/setup-tex.sh" >&2
+    echo "      请用系统包管理器安装 TeX Live 中文支持，或运行 ../../scripts/setup-tex.sh" >&2
     echo "      把它们装进 ./texmf。" >&2
     exit 1
   fi
