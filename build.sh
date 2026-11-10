@@ -23,14 +23,18 @@ PASSES=3   # 3 遍是下限：目录/交叉引用 1 遍、remember picture 定�
 command -v xelatex >/dev/null 2>&1 || {
   echo "错误：未找到 xelatex，请先安装 TeX Live。" >&2; exit 1; }
 
-if [ ! -d texmf ]; then
-  echo "错误：缺少本地 TeX 依赖目录 ./texmf。" >&2
-  echo "      请先运行 scripts/setup-tex.sh 安装 ctex / xeCJK / zhnumber。" >&2
-  echo "      （本机为 Arch 的 partial TeX Live，缺中文宏包，需用户态安装。）" >&2
-  exit 1
+# 中文宏包：优先后用系统 TeX Live；系统缺包时回退到仓库内的 texmf/
+if ! kpsewhich ctex.sty >/dev/null 2>&1; then
+  if [ -d texmf ]; then
+    export TEXMFHOME="$PWD/texmf"
+    echo "提示：系统未提供 ctex，改用 ./texmf。"
+  else
+    echo "错误：系统未安装 ctex / xeCJK / zhnumber。" >&2
+    echo "      请用系统包管理器安装 TeX Live 中文支持，或运行 scripts/setup-tex.sh" >&2
+    echo "      把它们装进 ./texmf。" >&2
+    exit 1
+  fi
 fi
-
-export TEXMFHOME="$PWD/texmf"
 
 # ---- 逐遍编译 -------------------------------------------------------------
 for i in $(seq 1 "$PASSES"); do
