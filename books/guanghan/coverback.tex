@@ -1,14 +1,83 @@
-% ---------------- 封底 ----------------
+% ============================ 封底 ============================
+\newcommand{\backart}{%
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+
+  \draw[cv55, line width=0.7pt]
+    ([xshift=10mm,yshift=-10mm]current page.north west)
+    rectangle ([xshift=-10mm,yshift=10mm]current page.south east);
+  \draw[cv32, line width=0.3pt]
+    ([xshift=12.4mm,yshift=-12.4mm]current page.north west)
+    rectangle ([xshift=-12.4mm,yshift=12.4mm]current page.south east);
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-18mm]current page.north)
+    {\sffamily\fontsize{6.4pt}{9pt}\selectfont
+     \addfontfeatures{LetterSpace=6}
+     MOSCOW UNIVERSITY PRESS · ST PETERSBURG ACADEMIC PRESS · VFS FOUNDATION};
+
+  \draw[cv32, line width=0.35pt]
+    ([xshift=-58mm,yshift=-25mm]current page.north east) --
+    ([xshift=58mm,yshift=-25mm]current page.north west);
+
+  % 引文
+  \node[anchor=north, text=cv82, align=center, text width=124mm]
+    at ([yshift=-38mm]current page.north)
+    {\fontsize{10.5pt}{17pt}\selectfont
+     “第一批残片编目于一九六三年。\\[2pt]
+      三十七年之后我才知道，\\[2pt]
+      那批东西是月球上带回来的。”};
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-76mm]current page.north)
+    {\sffamily\fontsize{7.2pt}{10pt}\selectfont ——本书导论};
+
+  \draw[cv30, line width=0.3pt]
+    ([xshift=-34mm,yshift=-84mm]current page.north east) --
+    ([xshift=34mm,yshift=-84mm]current page.north west);
+
+  % 内容简介
+  \node[anchor=north, text=cv72, align=justify, text width=132mm]
+    at ([yshift=-92mm]current page.north)
+    {\fontsize{8.2pt}{13.6pt}\selectfont
+     三十七片金属与陶瓷的长条，刻着小篆，宽约一指，长自数寸至尺余。
+     一九六三年在莫斯科编目，此后六十年无人调阅。\\[3mm]
+     它们出自月球正面一处编号为 \textsc{mare-tranq-07} 的基地。
+     这是那个基地自己留下的字。\\[3mm]
+     本卷分上下两编。上编是那三十七片能读出来的字，逐片给出释文、出处与校记；
+     下编八章，是读它们的人敢下的判断。\\[3mm]
+     凡例、存疑、器物编号对照、年表、索引，一并附录。};
+
+  \draw[cv30, line width=0.3pt]
+    ([xshift=-30mm,yshift=-164mm]current page.north east) --
+    ([xshift=30mm,yshift=-164mm]current page.north west);
+
+  % 丛书细目
+  \node[anchor=north, text=cv58, align=left, text width=132mm]
+    at ([yshift=-172mm]current page.north)
+    {\fontsize{7.2pt}{11.4pt}\selectfont
+     远东异端史料与文明起源重构丛书\\[1.5mm]
+     I\ \ 月之都\ ·\ II\ 西周“天车”铭文\ ·\ III\ 秦俑坑第 4 号坑\ ·\ IV\ 汉代地动仪\\[1mm]
+     V\ \ 三国电磁抛射\ ·\ VI\ 敦煌密钥学\ ·\ VII\ 战争的雷霆\ ·\ VIII\ 唐长安反物质管网\\[1mm]
+     IX\ 锦衣卫外骨骼\ ·\ X\ 郑和南极补给点\ ·\ XI\ 太医院基因工坊\ ·\ XII\ 记忆消除场};
+
+  \node[anchor=south, text=cv88, align=center]
+    at ([yshift=34mm]current page.south)
+    {\fontsize{9pt}{13pt}\selectfont 巴兰尼科夫\ \ 辑校};
+
+  \node[anchor=south, text=cv58, align=center]
+    at ([yshift=26mm]current page.south)
+    {\sffamily\fontsize{6.8pt}{9.6pt}\selectfont
+     国际标准书号\ \ ISBN 978-5-317-07512-5\quad ·\quad 定价\ \ 148.00 元};
+
+  \node[anchor=south, text=cv60, align=center]
+    at ([yshift=17mm]current page.south)
+    {\sffamily\fontsize{6.6pt}{9pt}\selectfont
+     莫斯科大学出版社\ \ ·\ \ 2025 年\ \ 第 1 版};
+\end{tikzpicture}}
+
 \clearpage
 \thispagestyle{empty}
-\begin{tikzpicture}[remember picture,overlay]
-  \fill[coverbg] (current page.north west) rectangle (current page.south east);
-  \node[anchor=north west,text=coverink,align=justify,text width=112mm]
-    at ([xshift=26mm,yshift=-46mm]current page.north west) {%
-    \footnotesize
-    第一批残片是一九六三年在莫斯科编目的。三十七片，刻着小篆，\\
-    宽约一指，长自数寸至尺余。\\[4mm]
-    它们不是中国的出土物。它们来自月球正面一处编号为 \textsc{mare-tranq-07} 的基地。\\[4mm]
-    本卷分上下两编。上编是那三十七片能读出来的字，下编是读它们的人敢下的判断。};
-\end{tikzpicture}
+\AddToShipoutPictureBG*{\backart}
+\null
 \clearpage
