@@ -1,0 +1,60 @@
+% ===================================================================
+%  《月之都——〈广寒宫残简〉辑佚与考释》专用版式
+%
+%  丛书基座在 ../../shared/style/series-base.tex；本书只在这里追加
+%  本书特有的东西。跨书共用的东西一律改基座，不要改这里。
+% ===================================================================
+
+\input{../../shared/style/series-base}
+
+% ---- 校勘符号（□ △ ○）划给中文字体，基座未收这一段 ----
+\xeCJKDeclareCharClass{CJK}{"25A0 -> "25FF}
+
+% ---- 本书特有：简、出处、校记、存疑 ------------------------------
+
+% 一条残简的容器。参数是简次，如「简十四」。
+\newenvironment{jian}[1]{%
+  \par\addvspace{7mm}%
+  \noindent{\sffamily\bfseries\small\color{graphite}#1}\par
+  \addvspace{1.6mm}%
+  \begingroup
+  \linespread{1.42}\selectfont
+  \leftskip=2\ccwd\relax
+}{%
+  \par\endgroup
+  \addvspace{2.4mm}%
+}
+
+% 出处行
+\newcommand{\chuchu}[1]{%
+  \par\noindent
+  {\footnotesize\color{pencil}〔出处〕#1}\par
+  \addvspace{0.8mm}%
+}
+
+% 校记行
+\newcommand{\xiaojì}[1]{%
+  \par\noindent
+  {\footnotesize\color{pencil}〔校记〕#1}\par
+}
+
+% 存疑条：四周加细框
+\newenvironment{cunyi}[1]{%
+  \par\addvspace{5mm}%
+  \begingroup
+  \setlength{\fboxsep}{5pt}%
+  \noindent\begin{minipage}{\linewidth}%
+  \color{graphite}\small
+  \noindent\textbf{#1}\par\addvspace{1.2mm}%
+}{%
+  \par\end{minipage}%
+  \endgroup
+  \addvspace{3mm}%
+}
+
+% 下编的节内小标题（不用 \section，避免进目录）
+\newcommand{\kao}[1]{%
+  \par\addvspace{4mm}%
+  \noindent{\sffamily\bfseries\color{graphite}#1}\par
+  \addvspace{1.4mm}%
+}

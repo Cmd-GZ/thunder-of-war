@@ -1,0 +1,14 @@
+% ---------------- 封底 ----------------
+\clearpage
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+  \node[anchor=north west,text=coverink,align=justify,text width=112mm]
+    at ([xshift=26mm,yshift=-46mm]current page.north west) {%
+    \footnotesize
+    第一批残片是一九六三年在莫斯科编目的。三十七片，刻着小篆，\\
+    宽约一指，长自数寸至尺余。\\[4mm]
+    它们不是中国的出土物。它们来自月球正面一处编号为 \textsc{mare-tranq-07} 的基地。\\[4mm]
+    本卷分上下两编。上编是那三十七片能读出来的字，下编是读它们的人敢下的判断。};
+\end{tikzpicture}
+\clearpage
