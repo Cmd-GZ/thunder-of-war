@@ -85,6 +85,9 @@
 % 让罗马数字、带圈数字等“类汉字”符号使用中文字体
 \xeCJKDeclareCharClass{CJK}{"2150 -> "218F, "2460 -> "24FF, "3000 -> "303F}
 
+% 标点用开明式：行首禁则与压缩都较默认的 plain 更稳，可减少「句号独行」。
+\AtBeginDocument{\xeCJKsetup{PunctStyle=kaiming}}
+
 \setCJKsansfont{Noto Sans CJK SC}[BoldFont=Noto Sans CJK SC Bold]
 \setCJKmonofont{Noto Sans Mono CJK SC}
 
