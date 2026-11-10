@@ -85,3 +85,27 @@
   \fi
 }
 \makeatother
+
+% ---- 版权页 ---------------------------------------------------------
+% 用法：\copyrightpage{<版权页表格行>}
+% 参数为 tabular 的行体，用 \cfrow{项目}{内容} 逐行给出。
+% 版式（minipage、页脚、法律声明）一律由本命令提供，各卷只填内容。
+\newcommand{\cfrow}[2]{#1 & #2\\}
+\newcommand{\copyrightpage}[1]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \noindent\begin{minipage}[t][\dimexpr\textheight-24pt\relax][s]{\textwidth}
+  \footnotesize
+  \vspace*{4mm}
+  \raggedright
+  \renewcommand{\arraystretch}{1.05}%
+  \begin{tabular}{@{}p{17mm}p{0.80\textwidth}@{}}
+  #1
+  \end{tabular}
+  \vfill
+  {\scriptsize\color{pencil}
+  版权所有\ \ 侵权必究。未经出版者书面许可，不得以任何方式复制或抄袭本书之部分或全部内容。\\
+  本书如有印装质量问题，请与本社读者服务部联系调换。}
+  \end{minipage}
+  \clearpage
+}
