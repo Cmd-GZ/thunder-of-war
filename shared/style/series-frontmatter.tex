@@ -1,0 +1,87 @@
+% ===================================================================
+%  丛书共用前置件
+%
+%  目录、图表目录、丛书页三者，各卷写法完全相同，只差一处高亮。
+%  在这里各做成一个命令，各卷 frontmatter 只调用，不再重抄版面代码。
+%
+%  依赖：series-base.tex 已载入。
+% ===================================================================
+
+% ---- 目录与图表目录 -------------------------------------------------
+% 用法：\tocandfigs
+% 说明：\tableofcontents 自己会开新页，故用底层命令手写标题。
+\newcommand{\tocandfigs}{%
+  \clearpage
+  \chapter*{目\quad 录}%
+  \phantomsection
+  \addcontentsline{toc}{chapter}{目\quad 录}%
+  \markboth{目\quad 录}{目\quad 录}%
+  \vspace{2mm}%
+  {\linespread{1.16}\selectfont
+   \csname @starttoc\endcsname{toc}%
+  }%
+  \clearpage
+  \chapter*{图表目录}%
+  \phantomsection
+  \addcontentsline{toc}{chapter}{图表目录}%
+  \markboth{图表目录}{图表目录}%
+  \vspace{2mm}%
+  {\linespread{1.16}\selectfont
+   {\noindent\sffamily\normalsize\bfseries 图\quad 版\par}%
+   \vspace{2mm}%
+   \csname @starttoc\endcsname{lof}%
+   \vspace{8mm}%
+   {\noindent\sffamily\normalsize\bfseries 表\quad 格\par}%
+   \vspace{2mm}%
+   \csname @starttoc\endcsname{lot}%
+  }%
+}
+
+% ---- 丛书页 ---------------------------------------------------------
+% 用法：\seriespage{vii}
+% 参数为本书的卷次（小写罗马数字），该行加粗；其余各行照排。
+\newcommand{\seriespage}[1]{%
+  \clearpage
+  \thispagestyle{empty}%
+  \begin{center}
+  \vspace*{12mm}
+  {\sffamily\small 远东异端史料与文明起源重构丛书}\\[3mm]
+  {\sffamily\footnotesize\color{pencil}%
+   Восточные еретические источники и реконструкция происхождения цивилизаций}\\[10mm]
+  {\sffamily\small 主编\quad А.\,В.\,巴兰尼科夫}
+  \end{center}
+  \vspace{6mm}
+  {\footnotesize\linespread{1.5}\selectfont
+   \begin{list}{}{\leftmargin=8mm \itemindent=-8mm \topsep=0pt \parsep=0pt}
+   \seriesrow{i}{《月之都——〈广寒宫残简〉辑佚与考释》}{巴兰尼科夫 辑校}{#1}
+   \seriesrow{ii}{西周“天车”铭文与星际物流}{库兹涅佐夫}{#1}
+   \seriesrow{iii}{秦俑坑第 4 号坑未被发掘的部分}{谢列兹尼奥娃}{#1}
+   \seriesrow{iv}{汉代地动仪作为引力波天线之功能}{巴兰尼科夫}{#1}
+   \seriesrow{v}{三国时期的电磁抛射技术与后勤}{彼得罗夫}{#1}
+   \seriesrow{vi}{敦煌卷子中的密钥学残卷}{伊万年科}{#1}
+   \seriesrow{vii}{战争的雷霆——记一种可能的中国历史}{巴兰尼科夫}{#1}
+   \seriesrow{viii}{唐长安城反物质管网复原}{巴兰尼科夫}{#1}
+   \seriesrow{ix}{明代锦衣卫外骨骼兵人体质档案}{张建国}{#1}
+   \seriesrow{x}{郑和舰队南极补给点考}{巴兰尼科夫}{#1}
+   \seriesrow{xi}{太医院基因工坊编年}{巴兰尼科夫}{#1}
+   \seriesrow{xii}{记忆消除场的文献学后果}{索科洛夫}{#1}
+   \end{list}}
+  \vspace{10mm}
+  {\footnotesize\color{pencil}
+   本丛书所收，均为对远东地区「异端史料」之重新整理与研究。\\
+   各卷可独立阅读，互不倚赖；引用遵循各卷自行之体例。}
+  \clearpage
+}
+
+% 单行。第 4 个参数为本书卷次，相符则整行加粗。
+\makeatletter
+\newcommand{\seriesrow}[4]{%
+  \def\@tmp{#4}%
+  \def\@mine{#1}%
+  \ifx\@tmp\@mine
+    \item \textbf{\textsc{#1}}\hspace{3mm}\textbf{#2}\hfill\textbf{#3}%
+  \else
+    \item \textsc{#1}\hspace{4mm}#2\hfill #3%
+  \fi
+}
+\makeatother
