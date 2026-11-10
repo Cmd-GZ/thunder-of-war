@@ -3,6 +3,62 @@
 \phantomsection
 \addcontentsline{toc}{chapter}{附录一\quad 器物与编号对照}
 \markboth{附录一}{附录一}
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=1mm,y=1mm]
+  \useasboundingbox (-13,-13) rectangle (88,38);
+  \draw[rulegrey,line width=0.4pt] (0,0) -- (86,0);
+  \draw[rulegrey,line width=0.4pt] (0,0) -- (0,33);
+  \foreach \v in {0,10,20,30}{%
+    \draw[rulegrey,line width=0.3pt] (-1,\v) -- (0,\v);
+    \node[font=\tiny,text=pencil,anchor=east] at (-1.6,\v) {\v};}
+  \node[font=\scriptsize,text=pencil,anchor=north] at (43,-6) {三十七片（按长度升序）};
+  \node[font=\scriptsize,text=pencil,rotate=90,anchor=south] at (-8,16) {长度（cm）};
+  \fill[graphite] (0.00,0) rectangle (1.50,6.2);
+  \fill[graphite] (2.20,0) rectangle (3.70,9.4);
+  \fill[graphite] (4.40,0) rectangle (5.90,9.8);
+  \fill[graphite] (6.60,0) rectangle (8.10,10.8);
+  \fill[graphite] (8.80,0) rectangle (10.30,11.2);
+  \fill[graphite] (11.00,0) rectangle (12.50,11.7);
+  \fill[graphite] (13.20,0) rectangle (14.70,12.3);
+  \fill[graphite] (15.40,0) rectangle (16.90,12.6);
+  \fill[graphite] (17.60,0) rectangle (19.10,12.9);
+  \fill[graphite] (19.80,0) rectangle (21.30,13.4);
+  \fill[graphite] (22.00,0) rectangle (23.50,13.6);
+  \fill[graphite] (24.20,0) rectangle (25.70,14.2);
+  \fill[graphite] (26.40,0) rectangle (27.90,14.8);
+  \fill[graphite] (28.60,0) rectangle (30.10,15.2);
+  \fill[graphite] (30.80,0) rectangle (32.30,15.3);
+  \fill[graphite] (33.00,0) rectangle (34.50,15.8);
+  \fill[graphite] (35.20,0) rectangle (36.70,16.4);
+  \fill[graphite] (37.40,0) rectangle (38.90,16.9);
+  \fill[graphite] (39.60,0) rectangle (41.10,17.1);
+  \fill[graphite] (41.80,0) rectangle (43.30,17.6);
+  \fill[graphite] (44.00,0) rectangle (45.50,17.9);
+  \fill[graphite] (46.20,0) rectangle (47.70,18.1);
+  \fill[graphite] (48.40,0) rectangle (49.90,18.4);
+  \fill[graphite] (50.60,0) rectangle (52.10,18.7);
+  \fill[graphite] (52.80,0) rectangle (54.30,18.9);
+  \fill[graphite] (55.00,0) rectangle (56.50,19.2);
+  \fill[graphite] (57.20,0) rectangle (58.70,19.8);
+  \fill[graphite] (59.40,0) rectangle (60.90,20.1);
+  \fill[graphite] (61.60,0) rectangle (63.10,20.5);
+  \fill[graphite] (63.80,0) rectangle (65.30,21.3);
+  \fill[graphite] (66.00,0) rectangle (67.50,22.0);
+  \fill[graphite] (68.20,0) rectangle (69.70,22.4);
+  \fill[graphite] (70.40,0) rectangle (71.90,23.7);
+  \fill[graphite] (72.60,0) rectangle (74.10,24.1);
+  \fill[graphite] (74.80,0) rectangle (76.30,25.6);
+  \fill[graphite] (77.00,0) rectangle (78.50,26.8);
+  \fill[graphite] (79.20,0) rectangle (80.70,28.4);
+  \draw[oxblood,line width=0.4pt,dash pattern=on 3pt off 2pt] (0,17.1) -- (86,17.1);
+  \node[font=\tiny,text=oxblood,anchor=south east] at (85.5,17.4) {中位 17.1};
+\end{tikzpicture}
+\caption{三十七片残简的长度分布（单位：厘米）}
+\label{fig:len}
+\figsource{据附录一实测数据绘制。最短者六点二厘米（简三十七，为某片之末段），最长者二十八点四厘米（简二十一）。}
+\end{figure}
+
 \begingroup
 \footnotesize
 \linespread{1.2}\selectfont
@@ -123,8 +179,8 @@
 \linespread{1.35}\selectfont
 \newcommand{\idx}[2]{\hangindent=1.4em \noindent #1\dotfill #2\par}
 \idx{六批}{16、17、35、37、38、39、46}
-\idx{净秽}{4、7、8、30、32、33}
-\idx{净秽山}{4、8、30、32、33}
+\idx{净秽}{4、7、8、32、33}
+\idx{净秽山}{4、8、32、33}
 \idx{圆片}{4、19、45}
 \idx{地热之衰}{10、15、38}
 \idx{外工}{6、11、13、16、25、28、36、38}
@@ -134,12 +190,9 @@
 \idx{岁计}{4、9、11、16、32、34、35、37、38}
 \idx{广寒宫}{1、19}
 \idx{月之民}{24、25、39、40、41}
-\idx{月兔}{11、12、30、32、33}
 \idx{玉山}{19}
 \idx{界}{2、4、5、6、8、13、14、28、29、32}
 \idx{界石}{14}
-\idx{纯化}{30、31}
-\idx{蓬莱药}{30}
 \idx{退役清单}{2、13}
 \idx{静海}{1、2、3}
 \endgroup

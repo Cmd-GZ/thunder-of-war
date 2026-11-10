@@ -7,6 +7,18 @@
 
 \input{../../shared/style/series-base}
 
+\AtBeginDocument{\xeCJKsetup{PunctStyle=quanjiao}}
+\tolerance=1500
+\emergencystretch=1.5em
+
+% ---- 图、表用平号（上编各卷不占章号，用 1-1 式会得到 0-1） ----
+\makeatletter
+\@removefromreset{figure}{chapter}
+\@removefromreset{table}{chapter}
+\makeatother
+\renewcommand{\thefigure}{\chinese{figure}}
+\renewcommand{\thetable}{\chinese{table}}
+
 % ---- 校勘符号（□ △ ○）划给中文字体，基座未收这一段 ----
 \xeCJKDeclareCharClass{CJK}{"25A0 -> "25FF}
 
