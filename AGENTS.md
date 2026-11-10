@@ -12,7 +12,7 @@
 |---|---|
 | 这是什么 | 一个**虚构世界观**的仓库，以及由这个世界观长出来的**一整套伪学术书** |
 | 与单本书的区别 | 以前是"写一本书"；现在是"维护一个世界，再让它长出多本书" |
-| 现有书目 | 第 VII 卷《战争的雷霆》（已成书）；第 I 卷《月之都》（即出） |
+| 现有书目 | 第 VII 卷《战争的雷霆》（已成书）；第 I 卷《月之都》（初稿已成，标为即出） |
 | 世界观（真相源） | [`worldview/`](worldview/)：生态重启、记忆消除场、月之都 |
 | 共用版式 | [`shared/style/series-base.tex`](shared/style/series-base.tex) |
 | 构建 | `cd books/<书名> && ./build.sh`（三遍 xelatex） |
@@ -116,7 +116,19 @@
 │   │   └── 战争的雷霆——记一种可能的中国历史.pdf
 │   │
 │   └── guanghan/              第 I 卷《月之都——〈广寒宫残简〉辑佚与考释》
-│       └── PLAN.md            写作计划（即出，尚未开工）
+│       ├── main.tex           入口
+│       ├── preamble.tex       基座 + 本书特有的简／出处／校记／存疑环境
+│       ├── cover.tex  coverback.tex
+│       ├── frontmatter.tex    扉页·丛书页·目录·图表目录·版权页
+│       ├── intro.tex          导论（六节）
+│       ├── shang1…4.tex       上编：凡例 + 四卷三十七简
+│       ├── cunyi.tex          存疑八条
+│       ├── xia1.tex  xia2.tex 下编：八章考释
+│       ├── backmatter.tex     附录一二三 + 索引
+│       ├── SETTING.md         本书硬设定（数字、专名、白名单、不可写之事）
+│       ├── build.sh
+│       ├── PLAN.md            写作计划（成书前的设计稿，保留备查）
+│       └── 月之都——广寒宫残简辑佚与考释.pdf
 │
 ├── scripts/setup-tex.sh       用户态安装中文宏包（系统缺包时才用）
 └── docs/                      跨书文档（暂无）
