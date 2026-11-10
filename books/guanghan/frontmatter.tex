@@ -55,6 +55,22 @@
 \csname @starttoc\endcsname{toc}
 }
 
+\clearpage
+\chapter*{图表目录}
+\phantomsection
+\addcontentsline{toc}{chapter}{图表目录}
+\markboth{图表目录}{图表目录}
+\vspace{2mm}
+{\linespread{1.16}\selectfont
+{\noindent\sffamily\normalsize\bfseries 图\quad 版\par}
+\vspace{2mm}
+\csname @starttoc\endcsname{lof}
+\vspace{8mm}
+{\noindent\sffamily\normalsize\bfseries 表\quad 格\par}
+\vspace{2mm}
+\csname @starttoc\endcsname{lot}
+}
+
 % ---------------- 版权页 ----------------
 \thispagestyle{empty}
 \noindent\begin{minipage}[t][\dimexpr\textheight-24pt\relax][s]{\textwidth}
