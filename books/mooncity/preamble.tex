@@ -1,0 +1,35 @@
+% ===================================================================
+%  《月之都——记一个不想变化的文明》专用版式
+%
+%  丛书基座在 ../../shared/style/series-base.tex；本书只在这里追加
+%  本书特有的东西。跨书共用的东西一律改基座，不要改这里。
+% ===================================================================
+
+\input{../../shared/style/series-base}
+\input{../../shared/style/series-frontmatter}
+
+% ---- 页眉用的书名（基座读 \volumetitle） ----
+\renewcommand{\volumetitle}{月之都——记一个不想变化的文明}
+
+% ---- 章首小序 ----------------------------------------------------
+% 用法：\kaishou{两三行的提要}，紧接在 \epigraphbox 之后、第一节之前。
+% 这是全书唯一允许带作者语气的地方，与正文的论著体分开。
+\newcommand{\kaishou}[1]{%
+  \begingroup
+  \vspace{1.5mm}%
+  \noindent\begin{minipage}{\textwidth}%
+    \small\linespread{1.32}\selectfont\color{pencil}%
+    \hspace*{2em}#1%
+  \end{minipage}%
+  \vspace{3mm}\par
+  \endgroup}
+
+% ---- 本书 ISBN 978-5-317-07513-2 的 EAN-13 图案（95 模块，30 段） ----
+\newcommand{\EANthirteenMC}[2]{%
+  \foreach \a/\b in {0/1,2/1,4/3,8/2,13/1,16/1,
+                      18/3,23/1,25/4,30/1,32/2,36/2,
+                      39/3,43/2,46/1,48/1,50/3,55/1,
+                      57/1,61/1,64/1,67/3,71/2,75/2,
+                      78/1,83/1,85/2,88/2,92/1,94/1}{%
+    \fill ({(\a)*(#1)},0) rectangle ({(\a+\b)*(#1)},#2);%
+  }}

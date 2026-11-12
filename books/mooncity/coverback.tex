@@ -1,0 +1,92 @@
+% ============================ 封底 ============================
+\newcommand{\backart}{%
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+
+  \draw[cv55, line width=0.7pt]
+    ([xshift=10mm,yshift=-10mm]current page.north west)
+    rectangle ([xshift=-10mm,yshift=10mm]current page.south east);
+  \draw[cv32, line width=0.3pt]
+    ([xshift=12.4mm,yshift=-12.4mm]current page.north west)
+    rectangle ([xshift=-12.4mm,yshift=12.4mm]current page.south east);
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-18mm]current page.north)
+    {\sffamily\fontsize{6.4pt}{9pt}\selectfont
+     \addfontfeatures{LetterSpace=6}
+     MOSCOW UNIVERSITY PRESS · ST PETERSBURG ACADEMIC PRESS · VFS FOUNDATION};
+
+  \draw[cv32, line width=0.35pt]
+    ([xshift=-58mm,yshift=-25mm]current page.north east) --
+    ([xshift=58mm,yshift=-25mm]current page.north west);
+
+  % 引文
+  \node[anchor=north, text=cv82, align=center, text width=124mm]
+    at ([yshift=-38mm]current page.north)
+    {\fontsize{10.5pt}{17pt}\selectfont
+     “我没去过月面。这一点先讲清楚。”\\[2pt]
+      三十年的画，没有一张画对过。};
+
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-76mm]current page.north)
+    {\sffamily\fontsize{7.2pt}{10pt}\selectfont ——本书著者中文版序言};
+
+  \draw[cv30, line width=0.3pt]
+    ([xshift=-34mm,yshift=-84mm]current page.north east) --
+    ([xshift=34mm,yshift=-84mm]current page.north west);
+
+  % 内容简介
+  \node[anchor=north, text=cv72, align=justify, text width=132mm,
+        font=\fontsize{7.6pt}{13.4pt}\selectfont]
+    at ([yshift=-92mm]current page.north)
+    {\textbf{\color{cv88}内容简介}\\[5pt]
+     月球背面不是一片地貌，是一个内壁。这个说法听起来像科幻，本书却只用三样东西去支撑它：
+     一九五九年以来的全部背面影像、一条在两个采样点之内跳变的反射率剖面、一份被涂黑了两行的移交清单。\\[4pt]
+     墙的那一边有空气、有海、有一座两万年没有改过一条章程的城。城里的人不再变化，因此不再生育，
+     因此造了一个会生育的种族来替自己干活；他们给自己造了一个不会死的邻居，
+     又在自己家门口埋了一台拆东西的机器。\\[4pt]
+     本书写的是这三件事如何一件事一件事地反过来。\\[6pt]
+     全书十章。作者没去过月面，这件事他在序里自己说了。};
+
+  % 一句话评论
+  \node[anchor=north, text=cv60, align=center, text width=132mm,
+        font=\fontsize{7.2pt}{12pt}\selectfont]
+    at ([yshift=-158mm]current page.north)
+    {\itshape “一部在每个步骤上都合乎规范、在整体上不可接受的著作。”\quad
+     ——《月面研究》2025 年第 1 期};
+
+  % 底部：ISBN、条码、定价
+  \draw[cv32, line width=0.3pt]
+    ([xshift=-58mm,yshift=38mm]current page.south east) --
+    ([xshift=58mm,yshift=38mm]current page.south west);
+
+  \node[anchor=south west, text=cv88, align=left]
+    at ([xshift=18mm,yshift=20mm]current page.south west)
+    {\fontsize{8.4pt}{12pt}\selectfont 定价：168.00 元};
+
+  \node[anchor=south east, text=cv60, align=right]
+    at ([xshift=-18mm,yshift=20mm]current page.south east)
+    {\sffamily\fontsize{7pt}{10pt}\selectfont ISBN 978-5-317-07513-2};
+
+  % 小条码（真实 EAN-13 图案）
+  \begin{scope}[shift={([xshift=-52mm,yshift=25mm]current page.south east)}]
+    \fill[white] (0,0) rectangle (34mm,13mm);
+    \begin{scope}[shift={(2.7mm,4.2mm)}]
+      \EANthirteenMC{0.30mm}{6.4mm}
+    \end{scope}
+    \node[text=ink, font=\sffamily\fontsize{3.2pt}{4pt}\selectfont, anchor=base]
+      at (1.6mm,2.9mm) {9};
+    \node[text=ink, font=\sffamily\fontsize{3.2pt}{4pt}\selectfont, anchor=base]
+      at (9.9mm,2.9mm) {785317};
+    \node[text=ink, font=\sffamily\fontsize{3.2pt}{4pt}\selectfont, anchor=base]
+      at (24.0mm,2.9mm) {075132};
+    \node[text=ink, font=\sffamily\fontsize{3.0pt}{3.6pt}\selectfont, anchor=base]
+      at (17mm,12.1mm) {ISBN 978-5-317-07513-2};
+  \end{scope}
+
+\end{tikzpicture}}
+
+\clearpage
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{\backart}
+\null

@@ -1,0 +1,137 @@
+% ============================ 封面 ============================
+% 说明：全部采用实色（不使用透明度），以保证 xdvipdfmx 输出稳定。
+\definecolor{cv55}{HTML}{8A8780}
+\definecolor{cv32}{HTML}{5B5A58}
+\definecolor{cv30}{HTML}{575655}
+\definecolor{cv60}{HTML}{949189}
+\definecolor{cv82}{HTML}{C1BCB0}
+\definecolor{cv88}{HTML}{CDC7BA}
+\definecolor{cv72}{HTML}{ADA89E}
+\definecolor{cv58}{HTML}{908D86}
+\definecolor{cv50}{HTML}{807E78}
+
+\newcommand{\coverart}{%
+\begin{tikzpicture}[remember picture, overlay]
+  \fill[coverbg] (current page.north west) rectangle (current page.south east);
+
+  % 外框：双线
+  \draw[cv55, line width=0.7pt]
+    ([xshift=10mm,yshift=-10mm]current page.north west)
+    rectangle ([xshift=-10mm,yshift=10mm]current page.south east);
+  \draw[cv32, line width=0.3pt]
+    ([xshift=12.4mm,yshift=-12.4mm]current page.north west)
+    rectangle ([xshift=-12.4mm,yshift=12.4mm]current page.south east);
+
+  % 装饰：背面——月盘、环形山、两片等宽边缘的低地、一处城
+  \begin{scope}[shift={([yshift=113mm]current page.south)}]
+    % 月盘
+    \draw[cv32, line width=0.5pt] (0,0) circle (21.5mm);
+    % 环形山：高地一侧
+    \foreach \cx/\cy/\r in {-15/9/1.1, -12/14/0.7, -17/1/1.5, -9/-5/0.9,
+                            -14/-11/1.2, -6/13/0.6, 12/-13/1.3, 16/-4/0.8,
+                            15/12/1.0, 9/-15/0.7}{
+      \draw[cv30, line width=0.25pt] (\cx mm,\cy mm) circle (\r mm);
+      \draw[cv55, line width=0.15pt] ({\cx mm+0.15mm},{\cy mm-0.15mm}) circle ({(\r-0.25)*1mm});
+    }
+    % 两片低地：填浅色以示平滑，内侧虚线表示等宽的「墙」
+    \fill[cv88] (-4.5mm,7mm) circle (5.8mm);
+    \fill[cv88] (2.5mm,-7mm) circle (6.8mm);
+    \draw[cv32, line width=0.5pt] (-4.5mm,7mm) circle (5.8mm);
+    \draw[cv32, line width=0.28pt, dash pattern=on 1.1pt off 1pt] (-4.5mm,7mm) circle (4.5mm);
+    \draw[cv32, line width=0.5pt] (2.5mm,-7mm) circle (6.8mm);
+    \draw[cv32, line width=0.28pt, dash pattern=on 1.1pt off 1pt] (2.5mm,-7mm) circle (5.3mm);
+    % 城：三重同心环
+    \foreach \rr in {2.3,1.5,0.75}{
+      \draw[cv30, line width=0.32pt] (2.5mm,-7mm) circle (\rr mm);}
+    % 明暗界线
+    \draw[cv30, line width=0.25pt, dash pattern=on 2.6pt off 2pt]
+      (-21.1mm,-0.6mm) -- (-11.2mm,-0.6mm);
+    \draw[cv30, line width=0.25pt, dash pattern=on 2.6pt off 2pt]
+      (9.8mm,-0.6mm) -- (21.1mm,-0.6mm);
+    \node[cv30, font=\sffamily\tiny, anchor=north, align=center]
+      at (0,-25.2mm) {ОБРАТНАЯ СТОРОНА\ \ ·\ \ 180°E};
+  \end{scope}
+
+  % ---- 顶部：丛书名 ----
+  \node[anchor=north, text=cv60, align=center]
+    at ([yshift=-16mm]current page.north)
+    {\sffamily\fontsize{6.4pt}{9pt}\selectfont
+     \addfontfeatures{LetterSpace=12}
+     FAR EASTERN HETERODOX SOURCES AND CIVILIZATION ORIGINS · VOL. XIII};
+
+  \node[anchor=north, text=cv88, align=center]
+    at ([yshift=-22.5mm]current page.north)
+    {\sffamily\fontsize{8.2pt}{11pt}\selectfont
+     《远东异端史料与文明起源重构丛书》\ \ 第\,XIII\,卷};
+
+  \draw[cv32, line width=0.35pt]
+    ([xshift=-62mm,yshift=-30mm]current page.north east) --
+    ([xshift=62mm,yshift=-30mm]current page.north west);
+
+  % ---- 中部：书名 ----
+  \node[anchor=center, text=coverink, align=center]
+    at ([yshift=190mm]current page.south)
+    {\fontsize{40pt}{48pt}\selectfont\bfseries
+     月\hspace{0.15em}之\hspace{0.15em}都};
+
+  \node[anchor=north, text=cv82, align=center]
+    at ([yshift=172mm]current page.south)
+    {\fontsize{14.5pt}{20pt}\selectfont
+     ——记一个不想变化的文明——};
+
+  \draw[cv32, line width=0.3pt]
+    ([xshift=-38mm,yshift=161mm]current page.south) --
+    ([xshift=38mm,yshift=161mm]current page.south);
+
+  \node[anchor=north, text=cv60, align=center, text width=136mm]
+    at ([yshift=157mm]current page.south)
+    {\itshape\fontsize{8pt}{12pt}\selectfont
+     \addfontfeatures{LetterSpace=2}
+     LUNAR CAPITAL\\[2pt]
+     A Civilization That Did Not Wish to Change};
+
+  % ---- 下部：作者 ----
+  \node[anchor=south, text=cv88, align=center]
+    at ([yshift=72mm]current page.south)
+    {\fontsize{10.5pt}{15pt}\selectfont
+     ［日］太田顺也\ \ 著};
+
+  \node[anchor=south, text=cv58, align=center]
+    at ([yshift=63mm]current page.south)
+    {\sffamily\fontsize{7.2pt}{10pt}\selectfont
+     太田 順也\ \ ·\ \ Дзюнъя ООТА};
+
+  \node[anchor=south, text=cv72, align=center]
+    at ([yshift=47mm]current page.south)
+    {\fontsize{9pt}{13pt}\selectfont
+     孙笑川\ \ ·\ \ 李文亚\ \ 译};
+
+  % 出版者徽记（两枚）
+  \node[anchor=south, text=cv72, align=center]
+    at ([yshift=32mm]current page.south)
+    {\begin{tikzpicture}[baseline=0pt]
+       \draw[cv50, line width=0.5pt] (-3.8mm,-3.8mm) rectangle (3.8mm,3.8mm);
+       \draw[cv32, line width=0.25pt] (-4.6mm,-4.6mm) rectangle (4.6mm,4.6mm);
+       \node[text=cv82, font=\sffamily\fontsize{5.6pt}{6pt}\selectfont] at (0,0) {МГУ};
+       \begin{scope}[xshift=13mm]
+         \draw[cv50, line width=0.5pt] (-3.8mm,-3.8mm) rectangle (3.8mm,3.8mm);
+         \draw[cv32, line width=0.25pt] (-4.6mm,-4.6mm) rectangle (4.6mm,4.6mm);
+         \node[text=cv82, font=\sffamily\fontsize{5.6pt}{6pt}\selectfont] at (0,0) {VFS};
+       \end{scope}
+     \end{tikzpicture}};
+
+  \node[anchor=south, text=coverink, align=center]
+    at ([yshift=24mm]current page.south)
+    {\sffamily\fontsize{7.4pt}{10.2pt}\selectfont
+     莫斯科大学出版社\ \ ·\ \ 圣彼得堡学术书局\ \ ·\ \ VFS 基金会};
+
+  \node[anchor=south, text=cv60, align=center]
+    at ([yshift=16.5mm]current page.south)
+    {\sffamily\fontsize{6.6pt}{9pt}\selectfont 联合出版\ \ ·\ \ 2025 年第 1 版};
+\end{tikzpicture}}
+
+\clearpage
+\thispagestyle{empty}
+\AddToShipoutPictureBG*{\coverart}
+\null
+\clearpage
