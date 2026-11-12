@@ -33,3 +33,13 @@
                       78/1,83/1,85/2,88/2,92/1,94/1}{%
     \fill ({(\a)*(#1)},0) rectangle ({(\a+\b)*(#1)},#2);%
   }}
+
+% 章题下的日文原题。丛书基座的 \chaptersubtitle 印两行（俄文原题 + 副题），
+% 本书原著为日文，只有一行，另立此命令。用法：\chapterkana{月の裏側の城}
+\newcommand{\chapterkana}[1]{%
+  \begin{center}
+  \vspace{-14pt}
+  {\small\sffamily\itshape\color{pencil}#1}
+  \end{center}
+  \vspace{4pt}
+}
