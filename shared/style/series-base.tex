@@ -183,11 +183,12 @@
   \def\@evenfoot{\hfil\small\thepage\hfil}}
 \makeatother
 
+\providecommand{\volumetitle}{}
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0.3pt}
 \renewcommand{\headrule}{\hbox to\headwidth{\color{rulegrey}\leaders\hrule height 0.3pt\hfill}}
-\fancyhead[LE]{\small\color{pencil}\itshape 战争的雷霆}
+\fancyhead[LE]{\small\color{pencil}\itshape\volumetitle}
 \fancyhead[RO]{\small\color{pencil}\itshape\leftmark}
 \fancyfoot[C]{\small\color{ink}\thepage}
 
