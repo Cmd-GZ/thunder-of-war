@@ -137,6 +137,13 @@
   {\thesubsection、}{0.2em}{}
 \titlespacing*{\subsection}{0pt}{13pt}{6pt}
 
+% 标题之后的第一段也要缩进两字。titlesec 默认抑制这一段的首行缩进，
+% 中文书的惯例相反：凡自然段都缩进，只有跨页续排的段落不缩进。
+\makeatletter
+\let\@afterindentfalse\@afterindenttrue
+\@afterindenttrue
+\makeatother
+
 \titleformat{\subsubsection}
   {\normalfont\normalsize\itshape}
   {}{0pt}{}
