@@ -14,12 +14,13 @@
 % ---- 章首小序 ----------------------------------------------------
 % 用法：\kaishou{两三行的提要}，紧接在 \epigraphbox 之后、第一节之前。
 % 这是全书唯一允许带作者语气的地方，与正文的论著体分开。
+% 提要块整块不缩进、不着首行缩进，与正文的自然段区分。
 \newcommand{\kaishou}[1]{%
   \begingroup
   \vspace{1.5mm}%
   \noindent\begin{minipage}{\textwidth}%
     \small\linespread{1.32}\selectfont\color{pencil}%
-    \leftskip=2em\relax\parindent=0pt\relax#1%
+    \parindent=0pt\relax#1%
   \end{minipage}%
   \vspace{3mm}\par
   \endgroup}
